@@ -14,7 +14,6 @@ html,body{margin:0;background:#050505;color:#fff;font-family:-apple-system,Blink
 button,input{font:inherit}
 
 .app{max-width:980px;margin:auto;padding:10px}
-
 .top{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:8px}
 
 .score,.timer{
@@ -204,13 +203,12 @@ background:#111;color:#fff;font-size:10px;font-weight:950;padding:3px
 .footer .history{border-color:var(--o)}
 
 .modal{
-position:fixed;inset:0;z-index:100;background:#050505f5;
+position:fixed;inset:0;z-index:100;background:#050505f7;
 display:none;overflow:auto;padding:22px
 }
 
 .modal.on{display:block}
-
-.box{max-width:900px;margin:auto}
+.box{max-width:1000px;margin:auto}
 
 .modalHead{
 display:flex;justify-content:space-between;align-items:center
@@ -277,22 +275,27 @@ padding:11px;background:#0b0b0b
 .seasonP b{font-size:27px}
 .seasonP span{float:right;color:#aaa}
 
-.hist{
-margin-top:10px;display:grid;gap:7px
-}
-
+.hist{margin-top:10px;display:grid;gap:7px}
 .histItem{font-size:14px}
+
+/* CLIPBOARD */
 
 .clipCats{
 display:grid;grid-template-columns:repeat(4,1fr);gap:7px
 }
 
 .clipCats button,.play{
-background:#111;color:#fff;border:1px solid #333;border-radius:8px
+background:#111;color:#fff;border:1px solid #333;border-radius:9px
 }
 
 .clipCats button{
-height:44px;font-size:11px;font-weight:900
+height:46px;font-size:12px;font-weight:1000
+}
+
+.clipCats button.on{
+background:var(--o);
+color:#111;
+border-color:var(--o)
 }
 
 .plays{
@@ -301,23 +304,185 @@ gap:8px;margin-top:10px
 }
 
 .play{
-min-height:66px;text-align:left;padding:10px;
-font-size:13px;font-weight:900
+min-height:68px;text-align:left;padding:10px;
+font-size:13px;font-weight:1000
 }
 
-.play small{display:block;color:#999;margin-top:3px}
+.play small{
+display:block;color:#999;margin-top:4px;
+font-size:10px;font-weight:700
+}
+
+.play.selected{
+border-color:var(--o);
+box-shadow:inset 0 0 0 1px var(--o)
+}
+
+.diagramWrap{
+margin-top:12px;
+border:1px solid #333;
+border-radius:12px;
+background:#111;
+padding:10px
+}
+
+.diagramTop{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+margin-bottom:8px
+}
+
+.diagramTitle{
+font-size:22px;
+font-weight:1000
+}
+
+.diagramHint{
+font-size:11px;
+color:#aaa;
+text-align:right
+}
 
 .court{
-margin:12px auto 0;
-width:100%;max-width:900px;
-aspect-ratio:16/10;background:#eef4f8;
-border-radius:10px;position:relative
+width:100%;
+aspect-ratio:16/10;
+background:#e7b66d;
+border-radius:10px;
+position:relative;
+overflow:hidden
 }
 
 .call{
-position:absolute;inset:0;display:flex;align-items:center;
-justify-content:center;text-align:center;padding:40px;
-font-size:36px;font-weight:1000;color:#111
+position:absolute;
+inset:0
+}
+
+.diagram{
+width:100%;
+height:100%;
+display:block
+}
+
+.diagram .courtLine{
+fill:none;
+stroke:#333;
+stroke-width:3
+}
+
+.diagram .move{
+fill:none;
+stroke:#e64022;
+stroke-width:6;
+stroke-linecap:round;
+stroke-linejoin:round
+}
+
+.diagram .pass{
+fill:none;
+stroke:#e64022;
+stroke-width:5;
+stroke-dasharray:12 9;
+stroke-linecap:round
+}
+
+.diagram .kidHead{
+fill:#a8683e;
+stroke:#111;
+stroke-width:2
+}
+
+.diagram .kidBody{
+fill:#fff;
+stroke:#111;
+stroke-width:3
+}
+
+.diagram .kidShorts{
+fill:#F58426;
+stroke:#111;
+stroke-width:2
+}
+
+.diagram .kidLimb{
+stroke:#111;
+stroke-width:6;
+stroke-linecap:round
+}
+
+.diagram .jersey{
+font-size:13px;
+font-weight:1000;
+text-anchor:middle;
+dominant-baseline:middle;
+fill:#111
+}
+
+.diagram .label{
+font-size:15px;
+font-weight:1000;
+text-anchor:middle;
+fill:#111
+}
+
+.diagram .ball{
+fill:#F58426;
+stroke:#111;
+stroke-width:2
+}
+
+.diagram .oppHead{
+fill:#b87850;
+stroke:#111;
+stroke-width:2
+}
+
+.diagram .oppBody{
+fill:#202020;
+stroke:#111;
+stroke-width:3
+}
+
+.diagram .oppShorts{
+fill:#555;
+stroke:#111;
+stroke-width:2
+}
+
+.diagram .oppText{
+fill:#fff;
+font-size:13px;
+font-weight:1000;
+text-anchor:middle;
+dominant-baseline:middle
+}
+
+.teaching{
+margin-top:10px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:7px
+}
+
+.teach{
+border:1px solid #333;
+background:#0c0c0c;
+border-radius:9px;
+padding:9px
+}
+
+.teach b{
+display:block;
+font-size:11px;
+color:var(--o);
+margin-bottom:3px
+}
+
+.teach span{
+font-size:10px;
+color:#ccc;
+line-height:1.25
 }
 
 @media(min-width:1100px){
@@ -332,7 +497,7 @@ font-size:36px;font-weight:1000;color:#111
 .score,.timer{height:88px;padding:5px;border-radius:9px}
 .score b{font-size:10px}
 .score input{height:56px;font-size:40px}
-.half{height:24px;font-size:inherit}
+.half{height:24px}
 .clock{font-size:34px}
 .clockReset{height:20px;font-size:8px}
 .nav{gap:4px;margin-top:4px}
@@ -350,11 +515,12 @@ font-size:36px;font-weight:1000;color:#111
 .footer{gap:4px;margin-top:4px}
 .footer button{height:35px;font-size:7px}
 .box{max-width:430px}
-.rosterList{display:grid;grid-template-columns:1fr}
+.rosterList{grid-template-columns:1fr}
 .seasonPts{grid-template-columns:1fr 1fr}
 .plays{grid-template-columns:1fr 1fr}
 .court{aspect-ratio:1/1}
-.call{font-size:24px;padding:30px}
+.teaching{grid-template-columns:1fr 1fr}
+.diagramTitle{font-size:17px}
 }
 </style>
 </head>
@@ -427,6 +593,7 @@ font-size:36px;font-weight:1000;color:#111
 <h2>Adjust Minutes</h2>
 <button class="close" data-close="adjustModal">✕</button>
 </div>
+
 <div id="adjustWho" class="adjustWho"></div>
 <div id="adjustTime" class="adjustTime">0:00</div>
 <div class="adjustReq">5:00 required this half</div>
@@ -472,6 +639,7 @@ SEASON RECORD
 
 <div class="modal" id="clipModal">
 <div class="box">
+
 <div class="modalHead">
 <h2>Clipboard</h2>
 <button class="close" data-close="clipModal">CLOSE</button>
@@ -480,8 +648,36 @@ SEASON RECORD
 <div class="clipCats" id="clipCats"></div>
 <div class="plays" id="plays"></div>
 
+<div class="diagramWrap">
+
+<div class="diagramTop">
+<div class="diagramTitle" id="diagramTitle">5-SPOT SPACING</div>
+<div class="diagramHint" id="diagramHint">Keep the floor spread.</div>
+</div>
+
 <div class="court">
-<div class="call" id="call">5-SPOT SPACING</div>
+<div class="call" id="call"></div>
+</div>
+
+<div class="teaching">
+<div class="teach">
+<b>MOVE</b>
+<span>Don't stand. Cut or fill open space.</span>
+</div>
+<div class="teach">
+<b>ATTACK</b>
+<span>Drive toward the basket, not the corner.</span>
+</div>
+<div class="teach">
+<b>BALL CONTROL</b>
+<span>Dribble → pick up → pass or shoot.</span>
+</div>
+<div class="teach">
+<b>REBOUND</b>
+<span>Bigs crash the boards. Everyone finds the ball.</span>
+</div>
+</div>
+
 </div>
 </div>
 </div>
@@ -556,6 +752,7 @@ let played=Object.fromEntries(P.map(n=>[n,[0,0]]));
 
 P.forEach(n=>{
 let x=g?.played?.[n];
+
 if(Array.isArray(x))
 played[n]=x.length>=4
 ?[+(x[0]||0)+ +(x[1]||0),+(x[2]||0)+ +(x[3]||0)]
@@ -998,26 +1195,409 @@ e.target.value=""
 r.readAsText(f)
 };
 
+/* ---------------------------
+   CLIPBOARD
+--------------------------- */
+
 const PLAY={
 "OFFENSE":[
-["5-SPOT SPACING","1 top · 2 wings · 2 bigs"],
-["PASS → CUT → FILL","Pass, cut hard, fill open space"],
-["GIVE & GO","Pass · cut · return pass"]
+["5-SPOT SPACING","Spread the floor · give the ball room"],
+["PASS → CUT → FILL","Pass · cut hard · fill the empty spot"],
+["GIVE & GO","Pass · cut to basket · return pass"]
 ],
 "DEFENSE":[
-["2-1-2 ZONE","2 up · 1 middle · 2 low"],
-["ZONE SLIDE","Five move together with the ball"],
-["DOUBLE-TEAM","Two to ball · others protect gaps"]
+["2-1-2 ZONE","Starting positions · protect paint"],
+["ZONE SLIDE","Move together when the ball moves"],
+["DOUBLE-TEAM","Two trap the ball · three protect gaps"]
 ],
 "TRANSITION":[
 ["REBOUND → OUTLET","Rebound · chin it · short outlet"],
-["3-LANE BREAK","Left · middle · right"],
-["2-ON-1","Attack middle · make defender choose"]
+["3-LANE BREAK","Run left · middle · right"],
+["2-ON-1","Attack middle · force defender to choose"]
 ],
 "BLANK":[
-["BLANK COURT","Draw / explain anything"]
+["BLANK COURT","Use the court to explain anything"]
 ]
 };
+
+const HINT={
+"5-SPOT SPACING":"Start spread out. Do not crowd the ball.",
+"PASS → CUT → FILL":"Pass, cut hard to the basket, then someone fills the open space.",
+"GIVE & GO":"Pass first. Cut immediately. Look for the return pass.",
+"2-1-2 ZONE":"Two up, one middle, two low. Protect the lane.",
+"ZONE SLIDE":"Ball moves → all five defenders move.",
+"DOUBLE-TEAM":"Two attack the ball. Everyone else protects the next pass and paint.",
+"REBOUND → OUTLET":"Secure the rebound first. Then make the short safe pass.",
+"3-LANE BREAK":"Wide lanes create space for the middle ball handler.",
+"2-ON-1":"Ball handler attacks the defender and makes them choose.",
+"BLANK COURT":"Coach's court."
+};
+
+function kid(x,y,num,ball=false){
+return `
+<g transform="translate(${x} ${y})">
+
+<line class="kidLimb" x1="-10" y1="16" x2="-17" y2="38"/>
+<line class="kidLimb" x1="10" y1="16" x2="17" y2="38"/>
+
+<line class="kidLimb" x1="-13" y1="3" x2="-27" y2="18"/>
+<line class="kidLimb" x1="13" y1="3" x2="27" y2="18"/>
+
+<rect class="kidBody" x="-18" y="-7" width="36" height="37" rx="8"/>
+
+<path class="kidShorts"
+d="M-17 26 L17 26 L14 41 L3 41 L0 31 L-3 41 L-14 41 Z"/>
+
+<circle class="kidHead" cx="0" cy="-20" r="13"/>
+
+<text class="jersey" x="0" y="10">${num}</text>
+
+${ball?`
+<circle class="ball" cx="-34" cy="20" r="10"/>
+<path
+d="M-44 20h20
+M-34 10c6 6 6 14 0 20
+M-34 10c-6 6-6 14 0 20"
+fill="none"
+stroke="#111"
+stroke-width="1.5"/>
+`:""}
+
+</g>`;
+}
+
+function defender(x,y,num){
+return `
+<g transform="translate(${x} ${y})">
+
+<line class="kidLimb" x1="-10" y1="16" x2="-20" y2="38"/>
+<line class="kidLimb" x1="10" y1="16" x2="20" y2="38"/>
+
+<line class="kidLimb" x1="-13" y1="2" x2="-30" y2="-5"/>
+<line class="kidLimb" x1="13" y1="2" x2="30" y2="-5"/>
+
+<rect class="oppBody" x="-18" y="-7" width="36" height="37" rx="8"/>
+
+<path class="oppShorts"
+d="M-17 26 L17 26 L14 41 L3 41 L0 31 L-3 41 L-14 41 Z"/>
+
+<circle class="oppHead" cx="0" cy="-20" r="13"/>
+
+<text class="oppText" x="0" y="10">${num}</text>
+
+</g>`;
+}
+
+function courtBase(){
+return `
+<rect x="0" y="0" width="900" height="560" rx="18" fill="#e7b66d"/>
+
+<line x1="80" y1="35" x2="820" y2="35" class="courtLine"/>
+
+<rect x="325" y="35" width="250" height="180" class="courtLine"/>
+
+<circle cx="450" cy="215" r="72" class="courtLine"/>
+
+<rect
+x="420"
+y="48"
+width="60"
+height="7"
+rx="3"
+fill="#fff"
+stroke="#111"
+stroke-width="2"/>
+
+<circle
+cx="450"
+cy="80"
+r="17"
+fill="none"
+stroke="#f15a24"
+stroke-width="5"/>
+
+<path
+d="M150 35
+L150 135
+C150 365 290 470 450 470
+C610 470 750 365 750 135
+L750 35"
+class="courtLine"/>
+
+<defs>
+<marker
+id="arrow"
+markerWidth="10"
+markerHeight="10"
+refX="8"
+refY="3"
+orient="auto">
+<path d="M0,0 L0,6 L9,3 z" fill="#e64022"/>
+</marker>
+</defs>
+`;
+}
+
+function drawPlay(name){
+
+$("diagramTitle").textContent=name;
+$("diagramHint").textContent=HINT[name]||"";
+
+let body="";
+
+if(name==="5-SPOT SPACING"){
+
+body=`
+${kid(450,475,"11",true)}
+${kid(180,350,"2")}
+${kid(720,350,"8")}
+${kid(300,205,"00")}
+${kid(600,205,"20")}
+
+<text class="label" x="450" y="540">POINT</text>
+<text class="label" x="180" y="415">WING</text>
+<text class="label" x="720" y="415">WING</text>
+<text class="label" x="300" y="270">BIG</text>
+<text class="label" x="600" y="270">BIG</text>
+`;
+
+}
+
+else if(name==="PASS → CUT → FILL"){
+
+body=`
+${kid(450,475,"11",true)}
+${kid(180,350,"2")}
+${kid(720,350,"8")}
+${kid(300,205,"00")}
+${kid(600,205,"20")}
+
+<path
+class="pass"
+marker-end="url(#arrow)"
+d="M415 455 L215 365"/>
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M445 430
+C420 355 410 285 435 220"/>
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M195 385
+C250 430 320 460 390 475"/>
+`;
+
+}
+
+else if(name==="GIVE & GO"){
+
+body=`
+${kid(450,475,"11",true)}
+${kid(205,345,"2")}
+${kid(695,345,"8")}
+${kid(450,205,"00")}
+
+<path
+class="pass"
+marker-end="url(#arrow)"
+d="M415 455 L240 360"/>
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M445 430
+C395 355 380 285 415 225"/>
+
+<path
+class="pass"
+marker-end="url(#arrow)"
+d="M240 325
+C315 275 355 240 410 220"/>
+`;
+
+}
+
+else if(name==="2-1-2 ZONE"){
+
+body=`
+${defender(330,225,"1")}
+${defender(570,225,"2")}
+${defender(450,325,"3")}
+${defender(300,430,"4")}
+${defender(600,430,"5")}
+
+<text class="label" x="450" y="520">
+STARTING POSITIONS
+</text>
+`;
+
+}
+
+else if(name==="ZONE SLIDE"){
+
+body=`
+${defender(330,225,"1")}
+${defender(570,225,"2")}
+${defender(450,325,"3")}
+${defender(300,430,"4")}
+${defender(600,430,"5")}
+
+${kid(165,175,"O",true)}
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M310 210 L205 180"/>
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M430 310 L245 225"/>
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M280 410 L220 325"/>
+
+<text class="label" x="700" y="505">
+BALL LEFT → FIVE SHIFT
+</text>
+`;
+
+}
+
+else if(name==="DOUBLE-TEAM"){
+
+body=`
+${kid(170,175,"O",true)}
+
+${defender(295,225,"1")}
+${defender(560,245,"2")}
+${defender(430,335,"3")}
+${defender(295,435,"4")}
+${defender(600,430,"5")}
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M275 210 L205 185"/>
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M410 320 L210 195"/>
+
+<text class="label" x="215" y="120">
+TRAP THE BALL
+</text>
+
+<text class="label" x="650" y="505">
+OTHERS PROTECT GAPS
+</text>
+`;
+
+}
+
+else if(name==="REBOUND → OUTLET"){
+
+body=`
+${kid(450,180,"00",true)}
+${kid(235,340,"11")}
+${kid(665,340,"8")}
+
+<path
+class="pass"
+marker-end="url(#arrow)"
+d="M415 200 L270 320"/>
+
+<text class="label" x="450" y="115">
+REBOUND · CHIN IT · SHORT OUTLET
+</text>
+`;
+
+}
+
+else if(name==="3-LANE BREAK"){
+
+body=`
+${kid(200,440,"2")}
+${kid(450,465,"11",true)}
+${kid(700,440,"8")}
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M200 400 L200 210"/>
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M450 425 L450 190"/>
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M700 400 L700 210"/>
+
+<text class="label" x="200" y="510">LEFT</text>
+<text class="label" x="450" y="535">MIDDLE</text>
+<text class="label" x="700" y="510">RIGHT</text>
+`;
+
+}
+
+else if(name==="2-ON-1"){
+
+body=`
+${kid(300,440,"11",true)}
+${kid(610,440,"8")}
+${defender(450,245,"D")}
+
+<path
+class="move"
+marker-end="url(#arrow)"
+d="M310 400
+C340 335 385 285 420 260"/>
+
+<path
+class="pass"
+marker-end="url(#arrow)"
+d="M335 430
+C430 400 520 400 570 420"/>
+
+<text class="label" x="450" y="520">
+ATTACK → MAKE DEFENDER CHOOSE
+</text>
+`;
+
+}
+
+else if(name==="BLANK COURT"){
+body=`
+<text
+class="label"
+x="450"
+y="520">
+COACH'S COURT
+</text>
+`;
+}
+
+$("call").innerHTML=`
+<svg
+class="diagram"
+viewBox="0 0 900 560"
+preserveAspectRatio="xMidYMid meet">
+
+${courtBase()}
+${body}
+
+</svg>
+`;
+}
 
 let cats=Object.keys(PLAY);
 
@@ -1031,17 +1611,24 @@ document.querySelectorAll("[data-cat]").forEach(b=>
 b.classList.toggle("on",b.dataset.cat===c)
 );
 
-$("plays").innerHTML=PLAY[c].map(p=>`
-<button class="play" data-call="${p[0]}">
+$("plays").innerHTML=PLAY[c].map((p,i)=>`
+<button class="play ${i?"":"selected"}" data-call="${p[0]}">
 ${p[0]}
 <small>${p[1]}</small>
 </button>`).join("");
 
 document.querySelectorAll("[data-call]").forEach(b=>
-b.onclick=()=>$("call").textContent=b.dataset.call
+b.onclick=()=>{
+
+document.querySelectorAll("[data-call]").forEach(x=>
+x.classList.toggle("selected",x===b)
 );
 
-$("call").textContent=PLAY[c][0][0]
+drawPlay(b.dataset.call)
+}
+);
+
+drawPlay(PLAY[c][0][0])
 }
 
 document.querySelectorAll("[data-cat]").forEach(b=>
